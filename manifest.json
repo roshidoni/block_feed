@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Feed Blocker",
+  "short_name": "Feed Blocker",
+  "version": "1.0",
+  "description": "Blocks Telegram chat items and YouTube feed.",
+  "permissions": [
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://web.telegram.org/*"],
+      "js": ["telegram.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["youtube.js"],
+      "css": ["youtube.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://m.youtube.com/*"],
+      "js": ["m.youtube.js"],
+      "css": ["m.youtube.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

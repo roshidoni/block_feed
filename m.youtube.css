@@ -1,0 +1,12 @@
+/* CSS rules for m.youtube.com (mobile YouTube) */
+
+.mobile-placeholder-image {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  z-index: 99999; /* Ensure it's on top */
+}
