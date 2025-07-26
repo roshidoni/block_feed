@@ -7,18 +7,25 @@
   }
 
   const day = new Date().getDay();
-  if (day === 0 || day === 6) return;
+  // if (day === 0 || day === 6) return;
 
   function removeItems() {
     document.querySelectorAll("ul.chatlist").forEach((chatlist) => {
-      chatlist.querySelectorAll("a").forEach((link) => {
+      const chatsList = chatlist.querySelectorAll("a");
+      console.log(chatlist.length);
+      for (let i = 0; i < chatsList.length; i++) {
+        const link = chatsList[i];
         const peerId = link.getAttribute("data-peer-id");
+        if (link.childNodes[1].classList.contains("has-only-pinned-badge")) {
+          console.log("skipped");
+          continue;
+        }
         if (peerId && peerId.startsWith("-")) {
+          console.log("removed");
           link.remove();
         }
-      });
+      }
     });
-
     // Remove badge elements that are inside menu-horizontal-div-item-span elements
     document
       .querySelectorAll(".menu-horizontal-div-item-span .badge")
@@ -33,4 +40,4 @@
     childList: true,
     subtree: true,
   });
-})(); 
+})();
