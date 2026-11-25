@@ -1,0 +1,23 @@
+html[data-bf-youtube-page="home"] ytd-rich-grid-renderer,
+html[data-bf-youtube-page="watch"] ytd-watch-flexy #related,
+html[data-bf-youtube-page="watch"] ytd-watch-next-secondary-results-renderer,
+ytd-search ytd-reel-shelf-renderer,
+ytd-search grid-shelf-view-model:has(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2),
+html[data-bf-youtube-page]:not([data-bf-youtube-page="results"]) ytd-notification-topbar-button-renderer,
+ytd-masthead #voice-search-button,
+ytd-masthead #buttons > ytd-button-renderer:has(button[aria-label="Create"]),
+ytd-guide-collapsible-section-entry-renderer:has(a[href="/feed/you"]),
+ytd-guide-section-renderer:has(
+  a:is([href="/feed/you"], [href="/premium"], [href^="https://music.youtube.com/"],
+    [href="/gaming"], [href^="/feed/storefront"], [href="/reporthistory"])
+):not(:has(a:is([href="/"], [href="/feed/subscriptions"]))),
+:is(ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer):has(
+  a:is([href="/shorts"], [href^="/shorts/"], [href^="/shorts?"], [href="/feed/you"],
+    [href="/feed/history"], [href="/feed/playlists"], [href="/playlist?list=WL"],
+    [href="/playlist?list=LL"], [href^="https://studio.youtube.com/"],
+    [href="/feed/downloads"], [href="/reporthistory"], [title="Your channel"]),
+  a[title="Shorts"]:not([href])
+),
+#guide #footer {
+  display: none !important;
+}
